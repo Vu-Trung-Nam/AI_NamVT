@@ -13,6 +13,7 @@ int main()
     // Nhap ma tran ke 
     int N, M;
     int adj[100][100];
+    int choice;
     cout << "Nhap so dinh va canh ";
     cin >> N >>M;
     // enter_adjacency_matrix(N,M, adj);
@@ -20,9 +21,36 @@ int main()
     // vector <pair<int, int>> edge_list;
     // enter_edge_list( N, M, edge_list);
     // show_edge_list(N,M, edge_list);
-    vector <int> adj_list [1000];
-    enter_adjacency_list(N, M, adj_list);
+    //vector <int> adj_list [1000];
+    //enter_adjacency_list(N, M, adj_list);
     // show_adjacency_list(N, M, adj_list);
+    cout << "MENU" << endl;
+    cout << "1) Ma tran ke"<< endl;
+    cout << "2) Danh sach canh" << endl;
+    cout << "3) Danh sach ke"<< endl;
+    cin >> choice;
+    switch (choice)
+    {
+    	case 1:
+    		{
+    			enter_adjacency_matrix(N,M, adj);
+    			break;
+			}
+		case 2:
+			{
+				vector <pair<int, int>> edge_list;
+				enter_edge_list( N, M, edge_list);
+    			show_edge_list(N,M, edge_list);
+    			break;
+			}
+		case 3:
+			{
+				vector <int> adj_list [1000];
+				enter_adjacency_list(N, M, adj_list);
+    			show_adjacency_list(N, M, adj_list);
+    			break;
+			}
+	}
     return 0;
 }
 
@@ -42,6 +70,10 @@ void enter_adjacency_list(int N, int M, vector <int> adj_list[])
 
 void show_adjacency_list(int N, int M,  vector <int> adj_list[]){
     // homework CODEHERE
+    int s, d;
+    for (auto i: adj_list[])
+        cout << i.first << endl;
+}
 }
 
 
@@ -73,7 +105,7 @@ void enter_adjacency_matrix(int N, int M, int adj[][100]){
     int a,b;
     for (int i=0;i<M;i++)
     {
-        cout<<"Nh?p 2 ð?nh t?o nên c?nh th? "<<i+1<<":\n";
+        cout<<"Nh?p 2 d?nh t?o nên c?nh th? "<<i+1<<":\n";
         cout<<"Ð?nh th? 1:";
         cin>>a;
         cout<<"Ð?nh th? 2:";
